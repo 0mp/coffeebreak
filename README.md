@@ -8,13 +8,13 @@ This utility is a a fake FreeBSD installer written by Devin Teske.
 
 ## Give me a break!
 
-coffeebreak(6) will soon be available in the FreeBSD ports collection.
+coffeebreak(6) will soon be available in the FreeBSD ports collection:
 
 ```
 pkg install coffeebreak
 ```
 
-otherwise it could be installed manually with make(1):
+Otherwise it could be installed manually with make(1):
 
 ```
 make install
