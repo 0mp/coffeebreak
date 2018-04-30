@@ -34,6 +34,11 @@
 .Nd "pretend your machine is busy with a fake FreeBSD installer"
 .Sh SYNOPSIS
 .Nm
+.Op Fl f Ar files
+.Op Fl i Ar increase
+.Op Fl p Ar barsize
+.Op Fl s Ar seconds
+.Op Fl w Ar width
 .Sh DESCRIPTION
 .Nm
 is a a fake
@@ -49,8 +54,46 @@ Here you go!
 .Nm
 is the tool you always wanted to make your machine as if it is very busy doing
 important stuff.
+.Pp
+The options are as follows:
+.Bl -tag -width ".Fl -f Ar files"
+.It Fl f Ar files
+Set the list of space-separated files to fake-fetch.
+Default value:
+.Dq Li "base.txz dict.txz doc.txz games.txz ports.txz src.txz" .
+.It Fl i Ar increase
+Set the number of percentage points to increment each time.
+.Ar increase
+must be even divisor of 100.
+Default value:
+.Dq Li 1 .
+.It Fl p Ar barsize
+Set the size of the mini-progressbar.
+Default value:
+.Dq Li 17 .
+.It Fl s Ar seconds
+Set the number of seconds to sleep in-between increments.
+.Ar n
+does not have to be an integer.
+Default value:
+.Dq Li 3 .
+.It Fl w Ar width
+Set the maximum width for labels (file names defined via the
+.Ev files
+environmental variable).
+Default value:
+.Dq Li 28 .
+.El
 .Sh ENVIRONMENT
+Those environmental are always overwritten by command-line options.
+.Pp
+Here is a list of environmental variables affecting the execution of
+.Nm :
 .Bl -tag -width ".Ev increment"
+.It Ev files
+Files to fake-fetch.
+Default value:
+.Dq Li "base.txz dict.txz doc.txz games.txz ports.txz src.txz" .
 .It Ev increment
 The number of percentage points to increment each time (must be even divisor of
 100).
@@ -70,10 +113,6 @@ The maximum width for labels (file names defined via the
 environmental variable).
 Default value:
 .Dq Li 28 .
-.It Ev files
-Files to fake-fetch.
-Default value:
-.Dq Li "base.txz dict.txz doc.txz games.txz ports.txz src.txz" .
 .El
 .Sh AUTHORS
 .Nm

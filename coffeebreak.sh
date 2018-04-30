@@ -45,6 +45,37 @@
 # Files to fake-fetch
 : ${files:="base.txz dict.txz doc.txz games.txz ports.txz src.txz"}
 
+args="$(getopt f:i:p:s:w: $*)"
+set -- $args
+while :; do
+    case "$1" in
+        -i)
+            increment="$2"
+            shift 2
+            ;;
+        -f)
+            files="$2"
+            shift 2
+            ;;
+        -p)
+            pbar_size="$2"
+            shift 2
+            ;;
+        -s)
+            sleep_sec="$2"
+            shift 2
+            ;;
+        -w)
+            txt_size="$2"
+            shift 2
+            ;;
+        --)
+            shift
+            break
+            ;;
+    esac
+done
+
 ### Rest below shouldn't need editing ###
 spin="/-\|"
 pct_lsize=$(( ( $pbar_size - 4 ) / 2 ))
