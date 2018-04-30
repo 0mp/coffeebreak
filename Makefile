@@ -27,7 +27,11 @@
 
 PREFIX = /usr/local
 BINDIR = $(DESTDIR)$(PREFIX)/bin
+MANDIR = $(DESTDIR)$(PREFIX)/man
+MAN6DIR = $(MANDIR)/man6
 
 install:
 	mkdir -p $(BINDIR)
 	install -m 0755 coffeebreak.sh $(BINDIR)/coffeebreak
+	mkdir -p $(MAN6DIR)
+	install -m 0555 coffeebreak.6 $(MAN6DIR)/coffeebreak.6
