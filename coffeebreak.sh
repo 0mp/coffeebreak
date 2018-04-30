@@ -3,7 +3,10 @@
 # ---
 # SPDX-License-Identifier: BSD-2-Clause
 #
-# Copyright 2013 Devin Teske. All rights reserved.
+# Copyright 2013 Devin Teske
+# Copyright 2018 Mateusz Piotrowski <0mp@FreeBSD.org>
+#
+# All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -27,11 +30,21 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-increment=1   # How much to increment % each time (must be even divisor of 100)
-sleep_sec=3   # Time to sleep in-between increments
-pbar_size=17  # How big is the mini-progressbar?
-txt_size=28   # Maximum width for labels (file names)
-files="base.txz dict.txz doc.txz games.txz ports.txz src.txz" # Files to fake-fetch
+# How much to increment % each time (must be even divisor of 100)
+: ${increment:=1}
+
+# Time to sleep in-between increments
+: ${sleep_sec:=3}
+
+# How big is the mini-progressbar?
+: ${pbar_size:=17}
+
+# Maximum width for labels (file names)
+: ${txt_size:=28}
+
+# Files to fake-fetch
+: ${files:="base.txz dict.txz doc.txz games.txz ports.txz src.txz"}
+
 ### Rest below shouldn't need editing ###
 spin="/-\|"
 pct_lsize=$(( ( $pbar_size - 4 ) / 2 ))
