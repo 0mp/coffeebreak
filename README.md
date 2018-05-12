@@ -8,7 +8,7 @@ This utility is a a fake FreeBSD installer written by Devin Teske.
 
 ## Give me a break!
 
-coffeebreak(6) will soon be available in the FreeBSD ports collection:
+coffeebreak(6) is [a part of the FreeBSD ports collection](https://www.freshports.org/games/coffeebreak/):
 
 ```
 pkg install coffeebreak
